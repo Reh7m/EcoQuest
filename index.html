@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Quiz | Eco Start-Up Club</title>
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <div class="app-container">
+        <!-- WELCOME SCREEN -->
+        <section id="welcome-screen" class="card active">
+            <div class="logo-wrapper">
+                <svg viewBox="0 0 300 300" class="brand-logo" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="150" cy="150" r="140" fill="#f0f7f4" />
+                    <path d="M 60,160 A 90,90 0 0,1 240,160" fill="none" stroke="#004d40" stroke-width="5" stroke-dasharray="120 10 20 10" />
+                    <path d="M 100,105 L 130,85 L 160,110 Z" fill="#4db6ac" opacity="0.6"/>
+                    <path d="M 140,115 L 175,90 L 210,120 Z" fill="#26a69a" opacity="0.8"/>
+                    <path d="M 50,170 Q 150,195 250,170 Q 260,220 150,235 Q 40,220 50,170 Z" fill="#00695c" />
+                    <path d="M 50,170 Q 150,185 250,170" fill="none" stroke="#ffffff" stroke-width="3" />
+                    <path d="M 65,185 Q 150,200 235,185" fill="none" stroke="#e0f2f1" stroke-width="2" />
+                    <g transform="translate(75, 60)">
+                        <path d="M 40,120 Q 20,100 25,75 Q 30,50 65,45 Q 90,15 125,30 Q 150,45 145,85 Q 155,100 150,125 Q 130,135 110,125 Q 70,140 40,120 Z" fill="#90a4ae" />
+                        <path d="M 45,115 Q 30,100 35,80 Q 40,60 65,55 Q 85,25 115,40 Q 135,55 130,90 Q 120,115 105,118 Q 75,130 45,115 Z" fill="#b0bec5" />
+                        <ellipse cx="65" cy="85" rx="20" ry="25" fill="#eceff1" opacity="0.5"/>
+                        <circle cx="115" cy="60" r="5" fill="#1a237e" />
+                        <circle cx="117" cy="58" r="1.5" fill="#ffffff" />
+                        <path d="M 122,68 Q 128,70 134,67" fill="none" stroke="#37474f" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="125" cy="67" r="1.5" fill="#37474f"/>
+                        <path d="M 127,62 Q 137,60 142,65" fill="none" stroke="#37474f" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M 127,66 Q 139,67 143,74" fill="none" stroke="#37474f" stroke-width="1.5" stroke-linecap="round"/>
+                        <path d="M 60,90 C 40,85 55,115 75,115 C 95,115 115,105 125,90 Z" fill="#2e7d32" />
+                        <path d="M 60,90 C 70,100 90,105 125,90" fill="none" stroke="#1b5e20" stroke-width="1.5" />
+                        <path d="M 90,96 Q 95,90 100,96 Q 95,102 90,96 Z" fill="#ffffff" />
+                        <path d="M 95,96 Q 100,90 105,96 Q 100,102 95,96 Z" fill="#ffffff" />
+                        <circle cx="50" cy="95" r="2" fill="#546e7a"/>
+                        <circle cx="58" cy="102" r="1.5" fill="#546e7a"/>
+                        <circle cx="68" cy="92" r="2" fill="#546e7a"/>
+                        <circle cx="80" cy="82" r="2.5" fill="#546e7a"/>
+                    </g>
+                    <path d="M 225,125 Q 240,110 245,130 Q 230,145 220,135 Z" fill="#2e7d32" />
+                    <path d="M 235,135 Q 255,130 250,155 Q 230,155 230,145 Z" fill="#1b5e20" />
+                    <polygon points="230,70 233,77 240,77 234,81 237,88 230,83 223,88 226,81 220,77 227,77" fill="#004d40" />
+                    <text x="150" y="260" font-family="'Outfit', sans-serif" font-weight="800" font-size="21" fill="#004d40" text-anchor="middle" letter-spacing="1">ECOSTART-UP</text>
+                    <path d="M 176,245 Q 180,240 184,248 Q 180,256 176,245 Z" fill="#2e7d32" />
+                    <text x="150" y="280" font-family="'Outfit', sans-serif" font-weight="600" font-size="14" fill="#2e7d32" text-anchor="middle" letter-spacing="6">— CLUB —</text>
+                </svg>
+            </div>
+            
+            <h1 class="title">Eco-Quiz <span>Bilik Yarışı</span></h1>
+            <p class="subtitle">ADNSU nəzdində Sənaye və Texnologiya Kolleci</p>
+            <p class="desc">Ekologiya, yaşıl texnologiyalar və tullantıların idarə olunması üzrə 15 suallıq interaktiv test.</p>
+
+            <form id="start-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" id="username" placeholder="Ad və Soyadınızı daxil edin" required maxlength="30" autocomplete="off">
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <span>Oyuna Başla</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <div class="leaderboard-mini-btn" id="open-lb-btn">
+                <i class="fa-solid fa-trophy"></i> Liderlər Lövhəsi
+            </div>
+        </section>
+
+        <!-- QUIZ SCREEN -->
+        <section id="quiz-screen" class="card">
+            <div class="quiz-header">
+                <div class="user-badge">
+                    <i class="fa-solid fa-user-leaf"></i>
+                    <span id="player-name-display">İstifadəçi</span>
+                </div>
+                <div class="timer-box" id="timer-box">
+                    <i class="fa-regular fa-clock"></i>
+                    <span id="timer">20</span>s
+                </div>
+                <div class="score-badge">
+                    <i class="fa-solid fa-star"></i>
+                    <span id="current-score">0</span> Xal
+                </div>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-info">
+                    <span>Sual <strong id="current-q-num">1</strong> / 15</span>
+                    <span id="combo-badge" class="combo-badge hidden"><i class="fa-solid fa-fire"></i> <span id="combo-count">2</span>x Kombo!</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="question-box">
+                <h2 id="question-text">Sual yüklənir...</h2>
+            </div>
+
+            <div class="options-grid" id="options-container">
+                <!-- Dynamic options -->
+            </div>
+
+            <div id="explanation-box" class="explanation-box hidden">
+                <div class="exp-title"><i class="fa-solid fa-circle-info"></i> Məlumat:</div>
+                <p id="explanation-text"></p>
+            </div>
+
+            <div class="quiz-footer">
+                <button id="next-btn" class="btn btn-secondary hidden">
+                    <span>Növbəti Sual</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- RESULT SCREEN -->
+        <section id="result-screen" class="card">
+            <div class="result-header">
+                <div class="status-icon" id="status-icon">🏆</div>
+                <h2 class="result-title">Test Yekunlaşdı!</h2>
+                <p class="player-congrats">Əla iş, <span id="res-player-name">Tələbə</span>!</p>
+            </div>
+
+            <div class="score-card">
+                <div class="score-big" id="final-score">0 / 15</div>
+                <div class="status-badge" id="status-badge">Eko-Ekspert</div>
+                <p class="status-desc" id="status-desc">Təbrik edirik! Yüksək ekoloji bilik nümayiş etdirdiniz.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <i class="fa-solid fa-check green"></i>
+                    <span class="stat-num" id="correct-count">0</span>
+                    <span class="stat-label">Düzgün</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fa-solid fa-xmark red"></i>
+                    <span class="stat-num" id="wrong-count">0</span>
+                    <span class="stat-label">Səhv</span>
+                </div>
+                <div class="stat-box">
+                    <i class="fa-solid fa-bolt yellow"></i>
+                    <span class="stat-num" id="max-streak">0</span>
+                    <span class="stat-label">Max Kombo</span>
+                </div>
+            </div>
+
+            <div class="result-actions">
+                <button id="restart-btn" class="btn btn-primary">
+                    <i class="fa-solid fa-rotate-right"></i> Yenidən Başla
+                </button>
+                <button id="review-btn" class="btn btn-outline">
+                    <i class="fa-solid fa-list-check"></i> Cavabları Təhlil Et
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL: LEADERBOARD -->
+    <div id="lb-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-trophy yellow"></i> Liderlər Lövhəsi</h3>
+                <span class="close-modal" id="close-lb">&times;</span>
+            </div>
+            <div class="modal-body">
+                <table class="lb-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>İştirakçı</th>
+                            <th>Xal</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="lb-table-body">
+                        <!-- Leaderboard items -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: REVIEW -->
+    <div id="review-modal" class="modal">
+        <div class="modal-content modal-large">
+            <div class="modal-header">
+                <h3><i class="fa-solid fa-list-check"></i> Cavabların Təhlili</h3>
+                <span class="close-modal" id="close-review">&times;</span>
+            </div>
+            <div class="modal-body" id="review-list">
+                <!-- Review list items -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
