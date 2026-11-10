@@ -1,0 +1,108 @@
+const questions = [
+    {
+        question: "Hansı təkrar emala (recycling) uygundur?",
+        options: ["Şüşə qutu", "Yemək qalıqları", "Yağlı kağız", "Pampers"],
+        correct: 0
+    },
+    {
+        question: "Karbon izini azaltmaq üçün hansı daha effektivdir?",
+        options: ["Hər gün maşın sürmək", "İctimai nəqliyyatdan istifadə", "Plastik yandırmaq", "Televizoru söndürməmək"],
+        correct: 1
+    },
+    {
+        question: "Hansı enerji növü bərpa olunan enerji mənbəyidir?",
+        options: ["Kömür", "Neft", "Günəş enerjisi", "Təbii qaz"],
+        correct: 2
+    },
+    {
+        question: "Plastik torbaların təbiətdə çürümə müddəti təxminən nə qədərdir?",
+        options: ["1 həftə", "1 il", "10 il", "Yüzlərlə il"],
+        correct: 3
+    },
+    {
+        question: "Evdə enerji qənaəti üçün hansı lampalardan istifadə etməliyik?",
+        options: ["LED lampalar", "Köhnə sarı işıqlı lampalar", "İstiqamətli Projektorlar", "Heç biri"],
+        correct: 0
+    }
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+let userName = "";
+
+function startQuiz() {
+    const nameInput = document.getElementById("username").value;
+    if (!nameInput) {
+        alert("Zəhmət olmasa adınızı daxil edin!");
+        return;
+    }
+    userName = nameInput;
+    document.getElementById("welcome-screen").style.display = "none";
+    document.getElementById("quiz-screen").style.display = "block";
+    showQuestion();
+}
+
+function showQuestion() {
+    let q = questions[currentQuestionIndex];
+    document.getElementById("question-text").innerText = (currentQuestionIndex + 1) + ". " + q.question;
+    let optionsContainer = document.getElementById("options-container");
+    optionsContainer.innerHTML = "";
+
+    q.options.forEach((opt, index) => {
+        let btn = document.createElement("button");
+        btn.innerText = opt;
+        btn.classList.add("option-btn");
+        btn.onclick = () => checkAnswer(index, btn);
+        optionsContainer.appendChild(btn);
+    });
+}
+
+function checkAnswer(selectedOpt, btn) {
+    let q = questions[currentQuestionIndex];
+    let allButtons = document.querySelectorAll(".option-btn");
+
+    if (selectedOpt === q.correct) {
+        btn.classList.add("correct");
+        score++;
+    } else {
+        btn.classList.add("wrong");
+        allButtons[q.correct].classList.add("correct");
+    }
+
+    allButtons.forEach(b => b.disabled = true);
+
+    setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            showResult();
+        }
+    }, 1000);
+}
+
+function showResult() {
+    document.getElementById("quiz-screen").style.display = "none";
+    document.getElementById("result-screen").style.display = "block";
+    
+    document.getElementById("result-title").innerText = `Təşəkkürlər, ${userName}!`;
+    document.getElementById("score-text").innerText = `Ümumi xalınız: ${score} / ${questions.length}`;
+
+    let status = "";
+    if (score >= 9) {
+        status = "🌿 Statusunuz: Eko-Ekspert";
+    } else if (score >= 5) {
+        status = "🌱 Statusunuz: Eko-Həvəskar";
+    } else {
+        status = "🌍 Statusunuz: Eko-Yolun Başlanğıcında";
+    }
+    document.getElementById("status-text").innerText = status;
+}
+
+function restartQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    document.getElementById("result-screen").style.display = "none";
+    document.getElementById("welcome-screen").style.display = "block";
+    document.getElementById("username").value = "";
+}
